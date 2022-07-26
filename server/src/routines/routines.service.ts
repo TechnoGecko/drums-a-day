@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateRoutineDto } from './dto/create-routine.dto';
-import { UpdateRoutineDto } from './dto/update-routine.dto';
+import { CreateRoutineInput } from './dto/create-routine.input';
+import { UpdateRoutineInput } from './dto/update-routine.input';
 
 @Injectable()
 export class RoutinesService {
-  create(createRoutineDto: CreateRoutineDto) {
+  create(createRoutineInput: CreateRoutineInput) {
     return 'This action adds a new routine';
   }
 
@@ -16,7 +16,7 @@ export class RoutinesService {
     return `This action returns a #${id} routine`;
   }
 
-  update(id: number, updateRoutineDto: UpdateRoutineDto) {
+  update(id: number, updateRoutineInput: UpdateRoutineInput) {
     return `This action updates a #${id} routine`;
   }
 

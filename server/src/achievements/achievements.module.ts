@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AchievementsService } from './achievements.service';
-import { AchievementsController } from './achievements.controller';
+import { AchievementsResolver } from './achievements.resolver';
+import { Achievement } from './entities/achievement.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  controllers: [AchievementsController],
-  providers: [AchievementsService]
+  imports: [TypeOrmModule.forFeature([Achievement])],
+  providers: [AchievementsResolver, AchievementsService],
 })
 export class AchievementsModule {}

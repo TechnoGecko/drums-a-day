@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { UserStatsService } from './user-stats.service';
-import { UserStatsController } from './user-stats.controller';
+import { UserStatsResolver } from './user-stats.resolver';
 
 @Module({
-  controllers: [UserStatsController],
-  providers: [UserStatsService]
+  providers: [UserStatsResolver, UserStatsService]
 })
 export class UserStatsModule {}

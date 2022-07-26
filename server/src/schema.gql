@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Achievement {
+  """Example field (placeholder)"""
+  id: Int!
+  name: String!
+}
+
+type Query {
+  achievements: [Achievement!]!
+  achievement(id: Int!): Achievement!
+}
+
+type Mutation {
+  createAchievement(createAchievementInput: CreateAchievementInput!): Achievement!
+  updateAchievement(updateAchievementInput: UpdateAchievementInput!): Achievement!
+  removeAchievement(id: Int!): Achievement!
+}
+
+input CreateAchievementInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateAchievementInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
