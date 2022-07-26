@@ -6,16 +6,19 @@ import {
   PracticeSession,
   Routines
 } from './pages/index';
-import logo from './logo.svg';
 import './App.css';
-import index from './pages/index';
+import { MantineProvider } from '@mantine/core';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h2>App</h2>
-    </div>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: 'dark'
+      }}
+    >
+      <HomePage />
+    </MantineProvider>
   );
 }
-
-export default App;

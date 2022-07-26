@@ -10,6 +10,4 @@ export class Achievement {
   @Column()
   @Field()
   name: string;
-
-  
 }
