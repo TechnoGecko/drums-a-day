@@ -15,7 +15,11 @@ export default function App() {
       withGlobalStyles
       withNormalizeCSS
       theme={{
-        colorScheme: 'dark'
+        colorScheme: 'dark',
+        spacing: { xs: 15, sm: 20, md: 25, lg: 30, xl: 40},
+        radius: { xs: 3, sm: 5, md: 7, lg: 12, xl: 15 },
+        // colors: {dark: [], gray: [], light: [], primary: [], secondary: []},
+
       }}
     >
       <HomePage />
