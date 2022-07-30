@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HomePage.css';
 import IntroScreen from './IntroScreen/IntroScreen';
 import { createStyles } from '@mantine/core';
@@ -18,11 +18,12 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 const HomePage = (props: Props) => {
   const { classes } = useStyles();
+  const [showIntro, setShowIntro] = useState(true);
 
   return (
     <div className={classes.pageWrapper}>
       HomePage
-      <IntroScreen />
+      <IntroScreen showIntro={showIntro} />
     </div>
   );
 };
