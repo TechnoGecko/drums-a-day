@@ -8,6 +8,7 @@ import {
 } from './pages/index';
 import './App.css';
 import { MantineProvider } from '@mantine/core';
+import { atom } from 'jotai';
 
 export default function App() {
   return (

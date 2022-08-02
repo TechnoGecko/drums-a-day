@@ -1,0 +1,35 @@
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 3px;
+}
+
+.close-btn:hover {
+    width: 35px;
+    height: 35px;
+    transform: translate(2.5px, -2.5px);
+}
+
+
+.close-line {
+    width: 80%;
+    height: 4px;
+    position: absolute;
+    background-color: #5B29A6;
+    border-radius: 2px;
+    transition: 1s;
+}
+
+.l1 {
+    transform: rotate(45deg);
+}
+
+.l2 {
+    transform: rotate(135deg);
+}
