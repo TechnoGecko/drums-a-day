@@ -6,6 +6,9 @@ import { useAtom } from 'jotai';
 import './IntroScreen.css';
 import { usePagination } from '@mantine/hooks';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import { EffectCards } from 'swiper';
 
 type Props = {
   showIntro: boolean;
@@ -24,7 +27,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'column',
-    border: '1px solid white',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: theme.radius.sm,
@@ -33,6 +35,24 @@ const useStyles = createStyles((theme, _params, getRef) => ({
         fontSize: theme.fontSizes.xs
       }
     }
+  },
+  swiper: {
+    display: 'flex',
+    height: '90vh',
+    width: '90vw'
+  },
+  swiperCard: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
+    height: '80%',
+    // TODO: replace with theme color
+    backgroundColor: '#333',
+    borderRadius: theme.radius.sm,
+    padding: '15px',
+    border: '4px solid white',
+    boxShadow: '0px 0px 0px 5px #333'
   }
 }));
 
@@ -43,41 +63,49 @@ const IntroScreen = (props: Props) => {
   const pagination = usePagination({ total: 5, initialPage: 1 });
 
   const renderSwitch = () => {
-    switch (pageNumber) {
-      case 1:
-        return <div>Page 1</div>;
-      case 2:
-        return <div>Page 2</div>;
-      case 3:
-        return <div>Page 3</div>;
-      case 4:
-        return <div>Page 4</div>;
-      case 5:
-        return <div>Page 5</div>;
-      default:
-        return null;
-    }
+    return (
+      <div>
+        <button
+          className="close-btn"
+          onClick={() => {
+            setShowIntro(!showIntro);
+            console.log(`showIntro set to ${showIntro}`);
+          }}
+        >
+          <div className="close-line l1" />
+          <div className="close-line l2" />
+        </button>
+        <Swiper
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          effect={'cards'}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className={classes.swiper}
+        >
+          <SwiperSlide className={classes.swiperCard}>
+            Slide1
+          </SwiperSlide>
+          <SwiperSlide className={classes.swiperCard}>
+            Slide2
+          </SwiperSlide>
+          <SwiperSlide className={classes.swiperCard}>
+            Slide3
+          </SwiperSlide>
+          <SwiperSlide className={classes.swiperCard}>
+            Slide4
+          </SwiperSlide>
+          <SwiperSlide className={classes.swiperCard}>
+            Slide5
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    );
   };
 
   return (
     <div className={classes.container}>
-      {/* Conditional Page Rendering */}
-      <button
-        className="close-btn"
-        onClick={() => setShowIntro(!showIntro)}
-      >
-        <div className="close-line l1" />
-        <div className="close-line l2" />
-      </button>
-      {/*renderSwitch()*/}
-      {/* <Pagination
-        page={pageNumber}
-        onChange={setPageNumber}
-        total={5}
-        size="xs"
-        radius="xl"
-        sx={{ justifySelf: 'flex-end', marginBottom: '15px' }}
-      /> */}
+      {showIntro ? renderSwitch() : ''}
     </div>
   );
 };
