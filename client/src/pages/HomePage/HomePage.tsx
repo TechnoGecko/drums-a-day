@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 import IntroScreen from './IntroScreen/IntroScreen';
-import { createStyles } from '@mantine/core';
+import { Button, createStyles } from '@mantine/core';
 import { atom, useAtom } from 'jotai';
 import { introAtom } from '../../interfaces';
 
@@ -14,7 +14,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    
   }
 }));
 
@@ -25,7 +26,12 @@ const HomePage = (props: Props) => {
   return (
     <div className={classes.pageWrapper}>
       HomePage
-      <IntroScreen showIntro={showIntro} />
+      <Button onClick={() => {
+        setShowIntro(!showIntro)
+        console.log(`showIntro: ${showIntro}`)
+        }}>Show Intro</Button>
+      
+      {showIntro ? <IntroScreen /> : ''}
     </div>
   );
 };

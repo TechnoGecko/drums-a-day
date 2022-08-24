@@ -8,7 +8,6 @@ import { usePagination } from '@mantine/hooks';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 type Props = {
-  showIntro: boolean;
 };
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -38,8 +37,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 const IntroScreen = (props: Props) => {
   const { classes } = useStyles();
-  const [pageNumber, setPageNumber] = useState(1);
   const [showIntro, setShowIntro] = useAtom(introAtom);
+  const [pageNumber, setPageNumber] = useState(1);
   const pagination = usePagination({ total: 5, initialPage: 1 });
 
   const renderSwitch = () => {
@@ -69,15 +68,15 @@ const IntroScreen = (props: Props) => {
         <div className="close-line l1" />
         <div className="close-line l2" />
       </button>
-      {/*renderSwitch()*/}
-      {/* <Pagination
+      {renderSwitch()}
+      <Pagination
         page={pageNumber}
         onChange={setPageNumber}
         total={5}
         size="xs"
         radius="xl"
         sx={{ justifySelf: 'flex-end', marginBottom: '15px' }}
-      /> */}
+      />
     </div>
   );
 };
