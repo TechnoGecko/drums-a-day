@@ -24,17 +24,16 @@ const HomePage = (props: Props) => {
 
   return (
     <div className={classes.pageWrapper}>
-      HomePage
+      HomePage{showIntro ? ' (showIntro: true)' : ' (showIntro: false)'}
       {!showIntro &&
         <Button
           onClick={() => {
-            setShowIntro(!showIntro);
-            console.log(`showIntro: ${showIntro}`);
+            setShowIntro(true);
           }}
         >
           Show Intro
         </Button>}
-      {showIntro ? <IntroScreen /> : ''}
+      {showIntro && <IntroScreen />}
     </div>
   );
 };

@@ -63,7 +63,7 @@ const IntroScreen = (props: Props) => {
         <button
           className="close-btn"
           onClick={() => {
-            setShowIntro(!showIntro);
+            setShowIntro(false);
           }}
         >
           <div className="close-line l1" />
@@ -71,7 +71,6 @@ const IntroScreen = (props: Props) => {
         </button>
         <Swiper
           slidesPerView={1}
-          pagination={{ clickable: true }}
           effect={'cards'}
           grabCursor={true}
           modules={[EffectCards]}
@@ -99,7 +98,7 @@ const IntroScreen = (props: Props) => {
 
   return (
     <div className={classes.container}>
-      {showIntro ? renderSwitch() : ''}
+      {renderSwitch()}
     </div>
   );
 };
