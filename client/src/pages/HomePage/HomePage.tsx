@@ -14,8 +14,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    
+    alignItems: 'center'
   }
 }));
 
@@ -26,11 +25,15 @@ const HomePage = (props: Props) => {
   return (
     <div className={classes.pageWrapper}>
       HomePage
-      <Button onClick={() => {
-        setShowIntro(!showIntro)
-        console.log(`showIntro: ${showIntro}`)
-        }}>Show Intro</Button>
-      
+      {!showIntro &&
+        <Button
+          onClick={() => {
+            setShowIntro(!showIntro);
+            console.log(`showIntro: ${showIntro}`);
+          }}
+        >
+          Show Intro
+        </Button>}
       {showIntro ? <IntroScreen /> : ''}
     </div>
   );

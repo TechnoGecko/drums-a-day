@@ -10,8 +10,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper';
 
-type Props = {
-};
+type Props = {};
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   container: {
@@ -46,8 +45,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     alignItems: 'center',
     width: '80%',
     height: '80%',
-    // TODO: replace with theme color
-    backgroundColor: '#333',
+    backgroundColor: theme.colors.dark[4],
     borderRadius: theme.radius.sm,
     padding: '15px',
     border: '4px solid white',
@@ -58,8 +56,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 const IntroScreen = (props: Props) => {
   const { classes } = useStyles();
   const [showIntro, setShowIntro] = useAtom(introAtom);
-  const [pageNumber, setPageNumber] = useState(1);
-  const pagination = usePagination({ total: 5, initialPage: 1 });
 
   const renderSwitch = () => {
     return (
@@ -68,7 +64,6 @@ const IntroScreen = (props: Props) => {
           className="close-btn"
           onClick={() => {
             setShowIntro(!showIntro);
-            console.log(`showIntro set to ${showIntro}`);
           }}
         >
           <div className="close-line l1" />
@@ -104,23 +99,7 @@ const IntroScreen = (props: Props) => {
 
   return (
     <div className={classes.container}>
-      {/* Conditional Page Rendering */}
-      <button
-        className="close-btn"
-        onClick={() => setShowIntro(!showIntro)}
-      >
-        <div className="close-line l1" />
-        <div className="close-line l2" />
-      </button>
-      {renderSwitch()}
-      <Pagination
-        page={pageNumber}
-        onChange={setPageNumber}
-        total={5}
-        size="xs"
-        radius="xl"
-        sx={{ justifySelf: 'flex-end', marginBottom: '15px' }}
-      />
+      {showIntro ? renderSwitch() : ''}
     </div>
   );
 };
